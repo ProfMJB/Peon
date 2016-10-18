@@ -18,17 +18,17 @@ class peonTest(TestCase):
         self.assertIn('Add Peon',headerText)
 #         There are 5 input boxes, labeled Start Latitude, Start Longitude, Destination Latitude, Destination Longitude and Name, and one button labelled Add Peon.
         startLatBox = self.browser.find_element_by_id('startLat')
-        self.assertEqual(startLatBox.get_attribute('placeholder'),'Start latitude')
+        self.assertEqual(startLatBox.get_attribute('placeholder'),'Start Latitude')
         startLongBox = self.browser.find_element_by_id('startLong')
-        self.assertEqual(startLongBox.get_attribute('placeholder'),'Start longitude')
+        self.assertEqual(startLongBox.get_attribute('placeholder'),'Start Longitude')
         destinationLatBox = self.browser.find_element_by_id('destinationLat')
-        self.assertEqual(destinationLatBox.get_attribute('placeholder'),'Destination latitude')
+        self.assertEqual(destinationLatBox.get_attribute('placeholder'),'Destination Latitude')
         destinationLongBox = self.browser.find_element_by_id('destinationLong')
-        self.assertEqual(destinationLongBox.get_attribute('placeholder'),'Destination longitude')
+        self.assertEqual(destinationLongBox.get_attribute('placeholder'),'Destination Longitude')
         nameBox = self.browser.find_element_by_id('name')
         self.assertEqual(nameBox.get_attribute('placeholder'),'Name')
         
-        self.fail('You have reached the end of your test. WRITE SOME MORE!')
+        self.fail('You have reached the end of your test, which is probably a good thing :D. WRITE SOME MORE!')
 #         Boxes are validated to be legitimate numbers.
 #         After clicking Add Peon, the user is taken to a page (/peon/list/)
 #         The title on the page is "Peon List".
