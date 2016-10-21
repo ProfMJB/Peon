@@ -8,10 +8,6 @@ def add(request):
         lat = request.POST['startLat']
         lng = request.POST['startLong']
         lifetime = request.POST['lifetime']
-        return render(request, 'peon/add.html',
-                      context={'name':name,
-                               'lat':lat,
-                               'long':lng,
-                               'lifetime':lifetime})
+        return render(request, 'peon/add.html',context={'name':name,'lat':lat,'long':lng,'lifetime':lifetime})
     else:
         return render(request,'peon/add.html')

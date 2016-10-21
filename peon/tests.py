@@ -27,6 +27,8 @@ class peonTest(TestCase):
         self.assertEqual(lifetimeBox.get_attribute('placeholder'),'Lifetime')
         nameBox = self.browser.find_element_by_id('name')
         self.assertEqual(nameBox.get_attribute('placeholder'),'Name')
+        addButton = self.browser.find_element_by_id('submit')
+        self.assertEqual(addButton.get_attribute('value'),'Add Peon')
 #         User inputs a name, a lat/long and a lifetime.
         startLatBox.send_keys("0")
         startLongBox.send_keys("0")

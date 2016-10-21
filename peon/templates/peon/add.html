@@ -8,15 +8,18 @@
 			{% csrf_token %}
 			<table>
 				<tr>
-					<td colspan="2"><input id="name" placeholder="Name" /></td>
+					<td colspan="2"><input id="name" name="name" placeholder="Name" /></td>
 				
 				</tr>
 				<tr>
-					<td><input id="startLat" placeholder="Start Latitude" /></td>
-					<td><input id="startLong" placeholder="Start Longitude" /></td>
+					<td><input id="startLat" name="startLat" placeholder="Start Latitude" /></td>
+					<td><input id="startLong" name="startLong" placeholder="Start Longitude" /></td>
 				</tr>
 				<tr>
-					<td><input id="lifetime" placeholder="Lifetime" /></td>
+					<td><input id="lifetime" name="lifetime" placeholder="Lifetime" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" id="submit" value="Add Peon"/></td>
 				</tr>
 			</table>
 		</form>
