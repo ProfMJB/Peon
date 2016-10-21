@@ -4,19 +4,25 @@
 	</head>
 	<body>
 		<h1>Add Peon</h1>
+		<form method="POST">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td colspan="2"><input id="name" placeholder="Name" /></td>
+				
+				</tr>
+				<tr>
+					<td><input id="startLat" placeholder="Start Latitude" /></td>
+					<td><input id="startLong" placeholder="Start Longitude" /></td>
+				</tr>
+				<tr>
+					<td><input id="lifetime" placeholder="Lifetime" /></td>
+				</tr>
+			</table>
+		</form>
 		<table>
-			<tr>
-				<td colspan="2"><input id="name" placeholder="Name" /></td>
-			</tr>
-			<tr>
-				<td><input id="startLat" placeholder="Start Latitude" /></td>
-				<td><input id="startLong" placeholder="Start Longitude" /></td>
-			</tr>
-			<tr>
-				<td><input id="destinationLat" placeholder="Destination Latitude" /></td>
-				<td><input id="destinationLong" placeholder="Destination Longitude" /></td>
-			</tr>
-			
+			<tr><th>name</th><th>lat</th><th>long</th><th>lifetime</th></tr>
+			<tr><td>{{ name }}</td><td>{{ lat }}</td><td>{{ long }}</td><td>{{ lifetime }}</td></tr>
 		</table>
 	</body>
 </html>

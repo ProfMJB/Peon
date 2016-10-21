@@ -1,5 +1,7 @@
 from django.test import TestCase
 from selenium import webdriver
+from django.http.request import HttpRequest
+from views import add
 
 # Create your tests here.
 
@@ -25,10 +27,27 @@ class peonTest(TestCase):
         self.assertEqual(lifetimeBox.get_attribute('placeholder'),'Lifetime')
         nameBox = self.browser.find_element_by_id('name')
         self.assertEqual(nameBox.get_attribute('placeholder'),'Name')
-        
+#         User inputs a name, a lat/long and a lifetime.
+        startLatBox.send_keys("0")
+        startLongBox.send_keys("0")
+        lifetimeBox.send_keys("20")
+        nameBox.send_keys("Geoffery")
         self.fail('You have reached the end of your test, which is probably a good thing :D. WRITE SOME MORE!')
 #         Boxes are validated to be legitimate numbers.
 #         After clicking Add Peon, the user is taken to a page (/peon/list/)
 #         The title on the page is "Peon List".
 #         The page has a list (of one), with the name and lat/long of the peon.
 #         When the lifetime is up, the peon is removed from the list, leaving an empty list box.
+
+class peonUnitTests(TestCase):
+    def test_addPeonSavesPOSTRequest(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['startLat'] = '1'
+        request.POST['startLong'] = '2'
+        request.POST['name'] = 'Geoffery'
+        request.POST['lifetime'] = '10'
+        
+        response = add(request)
+        
+        self.assertIn('<tr><td>Geoffery</td><td>1</td><td>2</td><td>10</td></tr>',response.content.decode())
